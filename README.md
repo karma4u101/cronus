@@ -21,7 +21,7 @@ Getting Started
 
 Scala IDE for Eclipse
 ---------------------
-Sbteclipse provides a sbt command to create Eclipse proejct files
+Sbteclipse provides SBT command to create Eclipse project files
 
 1) Usage
 
