@@ -19,17 +19,19 @@ Getting Started
 	
 	http://localhost:8080/
 
-SBT plugin for Scala IDE for Eclipse
-------------------------------------
-Sbteclipse provides a command to create Eclipse proejct files
-Usage:
-project$ ./sbt
-> eclipse create-src
+Scala IDE for Eclipse
+---------------------
+Sbteclipse provides a sbt command to create Eclipse proejct files
 
-In eclipse do: 
-File ==> Import...
-Select General ==> Exsisting Project into Workspace 
-Brows to look up the project
+1) Usage
+	project$ ./sbt
+	> eclipse create-src
+
+2) In eclipse do: 
+
+	File ==> Import...
+	Select General ==> Exsisting Project into Workspace 
+	Use "Brows" to look up the project root ....
 
 More Info 
 ---------
