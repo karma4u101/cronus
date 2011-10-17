@@ -24,6 +24,7 @@ Scala IDE for Eclipse
 Sbteclipse provides a sbt command to create Eclipse proejct files
 
 1) Usage
+
 	project$ ./sbt
 	> eclipse create-src
 
