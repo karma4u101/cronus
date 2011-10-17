@@ -35,7 +35,7 @@ class HelloWorld {
   // render the google map
   def renderGoogleMap(): NodeSeq = {
     // setup some locations to display on the map
-	val locations: List[JsObj] = List(makeLocation("loc1","40.744715", "-74.0046"),makeLocation("loc2","40.75684", "-73.9966"))
+	val locations: List[JsObj] = List(makeLocation("loc3","55.591721","13.007616"),makeLocation("loc1","40.744715", "-74.0046"),makeLocation("loc2","40.75684", "-73.9966"))
 	
 	// where the magic happens
     (<head>
