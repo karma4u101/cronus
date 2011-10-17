@@ -20,10 +20,11 @@ class HelloWorld {
   def howdy = renderGoogleMap()
 
   // converts a the location into a JSON Object
-  def makeLocation(title: String, lat: String, lng: String): JsObj = {
+  def makeLocation(title: String, lat: String, lng: String,iwc: String): JsObj = {
     JsObj(("title", title),
       ("lat", lat),
-      ("lng", lng))
+      ("lng", lng),
+      ("iwc",iwc))
   }
 
    // called by renderGoogleMap which passes the list of locations 
@@ -35,7 +36,7 @@ class HelloWorld {
   // render the google map
   def renderGoogleMap(): NodeSeq = {
     // setup some locations to display on the map
-	val locations: List[JsObj] = List(makeLocation("loc1","40.744715", "-74.0046"),makeLocation("loc2","40.75684", "-73.9966"),makeLocation("loc3","55.591721","13.007616"))
+	val locations: List[JsObj] = List(makeLocation("loc1","40.744715", "-74.0046","Info window content text for loc1 ....."),makeLocation("loc2","40.75684", "-73.9966","Info window content text for loc2 ....."))
 	
 	// where the magic happens
     (<head>

@@ -23,31 +23,30 @@
                    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
                    initialLocation = new google.maps.LatLng(locations.loc[0].lat, locations.loc[0].lng);
                    map.setCenter(initialLocation);
-			for(i=0; i<locations.loc.length; i++) {
-		    	var point = new google.maps.LatLng(locations.loc[i].lat,
-		                              locations.loc[i].lng);
-		    	var marker = new google.maps.Marker({
+			       for(i=0; i<locations.loc.length; i++) {
+		    	      var point = new google.maps.LatLng(locations.loc[i].lat,locations.loc[i].lng);
+		    	      var marker = new google.maps.Marker({
                                     position: point,
+                                    map: map,
                                     title: locations.loc[i].title
                                     });
-                        marker.setMap(map);
+		    	      var iw = new google.maps.InfoWindow({
+		    		                position: point,
+		    		                content:locations.loc[i].iwc
+		    	                    });
+				      google.maps.event.addListener(marker, 'click', (function(marker,iw,i){
+				         return function() {
+					        iw.setContent(locations.loc[i].iwc);
+					        iw.open(map,marker);
+				         }
+					  })(marker,iw,i));		
+			       
+                //marker.setMap(map);
+		    	//iw.setMap(map);
 			}
-		  
-                }
-/*
-		function drawmap(locations) {
-		  if (GBrowserIsCompatible()) {
-		    var map = new GMap2(document.getElementById("map_canvas"));
-		    map.setCenter(new GLatLng(locations.loc[0].lat, locations.loc[0].lng), 12);
 
-			for(i=0; i<locations.loc.length; i++) {
-		    	var point = new GLatLng(locations.loc[i].lat,
-		                              locations.loc[i].lng);
-		    	map.addOverlay(new GMarker(point));
-			}
-		  }
-		}
-*/
+	}
+
 		</script>	
       <fieldset>
 	    <legend>&nbsp;&nbsp;Cronus&nbsp;&nbsp;</legend>
