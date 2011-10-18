@@ -1,62 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-    <title>Home</title>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<title>Home</title>
 
-  </head>
-  <body class="lift:content_id=main" onunload="GUnload()">
-    <div id="main" class="lift:surround?with=default;at=content">
-                <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.4&sensor=false&language=en"></script>
-		<!--
-                 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAioxF5FgusXtcgBwrvEujhhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxTQUfOxOXeD9edFujLJ5mTpl34dcQ" type="text/javascript"></script>
-                -->
-		
-                <script type="text/javascript">
-             
-                function drawmap(locations) {
-		  
-                   var myOptions = {
-                      zoom: 12,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                   };
-                   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-                   initialLocation = new google.maps.LatLng(locations.loc[0].lat, locations.loc[0].lng);
-                   map.setCenter(initialLocation);
-			       for(i=0; i<locations.loc.length; i++) {
-		    	      var point = new google.maps.LatLng(locations.loc[i].lat,locations.loc[i].lng);
-		    	      var marker = new google.maps.Marker({
-                                    position: point,
-                                    map: map,
-                                    title: locations.loc[i].title
-                                    });
-		    	      var iw = new google.maps.InfoWindow({
-		    		                position: point,
-		    		                content:locations.loc[i].iwc
-		    	                    });
-				      google.maps.event.addListener(marker, 'click', (function(marker,iw,i){
-				         return function() {
-					        iw.setContent(locations.loc[i].iwc);
-					        iw.open(map,marker);
-				         }
-					  })(marker,iw,i));		
-			       
-                //marker.setMap(map);
-		    	//iw.setMap(map);
+</head>
+<body class="lift:content_id=main" onunload="GUnload()">
+	<div id="main" class="lift:surround?with=default;at=content">
+		<head_merge> <script type="text/javascript"
+			src="http://maps.googleapis.com/maps/api/js?v=3.4&sensor=false&language=en"></script>
+		<script type="text/javascript">
+			function drawmap(locations) {
+				var myOptions = {
+					zoom : 12,
+					mapTypeId : google.maps.MapTypeId.ROADMAP
+				};
+				var map = new google.maps.Map(document
+						.getElementById("map_canvas"), myOptions);
+				initialLocation = new google.maps.LatLng(locations.loc[0].lat,
+						locations.loc[0].lng);
+				map.setCenter(initialLocation);
+				for (i = 0; i < locations.loc.length; i++) {
+					var point = new google.maps.LatLng(locations.loc[i].lat,
+							locations.loc[i].lng);
+					var marker = new google.maps.Marker({
+						position : point,
+						map : map,
+						title : locations.loc[i].title
+					});
+					var iw = new google.maps.InfoWindow({
+						position : point,
+						content : locations.loc[i].iwc
+					});
+					google.maps.event.addListener(marker, 'click', (function(
+							marker, iw, i) {
+						return function() {
+							iw.setContent(locations.loc[i].iwc);
+							iw.open(map, marker);
+						}
+					})(marker, iw, i));
+				}
 			}
-
-	}
-
-		</script>	
-      <fieldset>
-	    <legend>&nbsp;&nbsp;Cronus&nbsp;&nbsp;</legend>
-	      <p valign=center align=center>
-		<div class="lift:helloWorld.howdy">
-			<div id="map_canvas" style="width: 700px; height: 480px"></div>	
-		</div>
-	      </p>
-	  </fieldset>    
+		</script> </head_merge>
+		<span class="lift:GoogleMaps.jsData"></span>
+        <div style="width:80%; height:400px" >
+		<fieldset style="border:1px solid lightgray; width:inherit;height:inherit;margin: 10px;padding:5px;">
+			<legend style="color:gray">Scala Lift SBT Template Example&nbsp;&nbsp;--&nbsp;&nbsp;Using Google Maps API&nbsp;&nbsp;</legend>
+			<div id="map_canvas" style="width: 100%; height: 100%"></div>
+		</fieldset>
+        <div>
 	</div>
-  </body>
+</body>
 </html>
 

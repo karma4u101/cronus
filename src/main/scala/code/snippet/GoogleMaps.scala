@@ -14,10 +14,10 @@ import js.{JsObj, JE, JsCmd}
 import JE._
 import _root_.scala.xml.{NodeSeq, Text}
 
-class HelloWorld {
+class GoogleMaps {
 
   // replace the contents of the element with what map to render
-  def howdy = renderGoogleMap()
+  def jsData = renderGoogleMap()
 
   // converts a the location into a JSON Object
   def makeLocation(title: String, lat: String, lng: String,iwc: String): JsObj = {
@@ -39,9 +39,9 @@ class HelloWorld {
 	val locations: List[JsObj] = List(makeLocation("loc1","40.744715", "-74.0046","Info window content text for loc1 ....."),makeLocation("loc2","40.75684", "-73.9966","Info window content text for loc2 ....."))
 	
 	// where the magic happens
-    (<head>
+    (<head_merge>
       {Script(OnLoad(ajaxFunc(locations)))}
-    </head>)
+    </head_merge>)
   }
 }
 
