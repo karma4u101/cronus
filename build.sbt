@@ -1,7 +1,7 @@
 
 organization := "Lift"
 
-name := "Lift SBT Template -- Goggle maps example"
+name := "Lift SBT Template -- Google maps example"
 
 version := "0.1-SNAPSHOT"
 
@@ -10,10 +10,7 @@ scalaVersion := "2.9.1"
 seq(webSettings :_*)
 
 // If using JRebel
-//jettyScanDirs := Nil
-
-//mixed java scala
-//compileOrder := CompileOrder.JavaThenScala
+//scanDirectories in Compile := Nil
 
 logLevel := Level.Info
 
@@ -32,7 +29,8 @@ libraryDependencies ++= {
 
 // Customize any further dependencies as desired
 libraryDependencies ++= Seq(
-  "org.mortbay.jetty" % "jetty" % "6.1.22" % "container", // For Jetty 7
+  "org.eclipse.jetty" % "jetty-webapp" % "8.0.3.v20111011" % "container",
+  //"org.mortbay.jetty" % "jetty" % "6.1.22" % "container", // For Jetty 7
   "javax.servlet" % "servlet-api" % "2.5" % "provided->default",
   "org.slf4j" % "slf4j-log4j12" % "1.6.1" % "compile->default", // Logging
   "junit" % "junit" % "4.8" % "test->default", // For JUnit 4 testing
